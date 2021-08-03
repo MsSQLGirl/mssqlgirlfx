@@ -6,5 +6,6 @@
     # To use the Az module in your function app, please uncomment the line below.
     'Az' = '6.*'
     'PowerShellNotebook' = '2.7.5'
-    'SqlServer' = '21.*'
+    #'SqlServer' = '21.*'
+    #'Az.Accounts' = '2.*'
 }

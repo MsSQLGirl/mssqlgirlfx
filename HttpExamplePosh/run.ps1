@@ -33,17 +33,23 @@ if (-not $ratio) {
 # Below is to run Julie's simple Posh script
 # $sourceNB = "https://raw.githubusercontent.com/MsSQLGirl/jubilant-data-wizards/main/Simple%20Demo/PowerShell%20Notebooks/SimpleAdditionInPowerShell.ipynb"
 
-# Below is Doug's input.ipynb file
+
+##################################
+# ### Test Powershell Notebook ###
+##################################
+
+# # Below is Doug's input.ipynb file
 $sourceNB = "https://raw.githubusercontent.com/dfinke/PowerShellNotebook/master/input.ipynb"
 
+# # One can call the raw path directly and then just substitute paramters with the input request
+$body = Invoke-ExecuteNotebook $sourceNB -Parameters @{ alpha=$alpha; ratio=$ratio; a=$a}
+
+# # print it out here
+# $body = $test # "Hello, $test. This HTTP triggered function executed successfully."
+
+# # this doesn't work because local path not supported
 # Invoke-WebRequest $sourceNB -OutFile $inputNB
 # $test = Invoke-ExecuteNotebook $inputNB
-
-# One can call the raw path directly and then just substitute paramters with the input request
-$test = Invoke-ExecuteNotebook $sourceNB -Parameters @{ alpha=$alpha; ratio=$ratio; a=$a}
-
-# print it out here
-$body = $test # "Hello, $test. This HTTP triggered function executed successfully."
 
 # if name is provided then don't do the notebook thingy
 if ($name) {
